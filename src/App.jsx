@@ -18,7 +18,7 @@ export default function App() {
         else         
             cart = cart.map(cartItem => {
                 if (cartItem.id === storeItem.id) 
-                    cartItem = {...cartItem, quantity: ++cartItem.quantity }
+                    cartItem = {...cartItem, quantity: ++cartItem.quantity}
                 return cartItem
             }) 
         updatePage()
@@ -30,7 +30,7 @@ export default function App() {
         else
             cart = cart.map(cartItem => {
                 if (cartItem.id === item.id) 
-                    cartItem = {...cartItem, quantity: --cartItem.quantity }
+                    cartItem = {...cartItem, quantity: --cartItem.quantity}
                 return cartItem
             })
         updatePage()
