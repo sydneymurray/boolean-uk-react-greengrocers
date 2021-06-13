@@ -26,6 +26,13 @@ button {
   text-transform: uppercase;
   font-size: 0.725rem;
 }
+.store-button {
+  margin-bottom: 1ch;
+}
+.store-button:hover {
+  background-color: white;
+  border-radius: 3px;
+}
 
 /* Store */
 
@@ -53,6 +60,7 @@ button {
   display: grid;
   place-items: center;
   grid-row-gap: 0.5rem;
+  margin-right: -5ch;
 }
 
 .store--item-icon {
@@ -174,6 +182,7 @@ button {
 
 .total-number {
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 @media only screen and (max-width: 450px) {
@@ -181,4 +190,15 @@ button {
     border-top: 2px solid #00675b;
     border-bottom: 2px solid #00675b;
   }
+}
+.store-list-item {
+  padding: 1ch;
+}
+.quantity-btn:hover {
+  transform: scale(1.5);
+}
+.store-list-item:hover {
+  background-color: rgb(183, 255, 255);
+  border-radius: 5px;
+  border: 2px solid color black;
 }
