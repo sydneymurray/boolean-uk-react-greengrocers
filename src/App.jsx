@@ -23,7 +23,7 @@ export default function App() {
             .then(function (productArray) {
                 setProducts(productArray)})
     }
-    
+
     function retrieveCart() {
         return fetch("http://localhost:3100/cart")
             .then(function (promise) {
@@ -92,18 +92,7 @@ export default function App() {
                     setCart(cart)
                 }
             })
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+         
         }
     }
 

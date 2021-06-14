@@ -1,6 +1,13 @@
+import products from "../data/products.js"
 import RenderCartItem from "./RenderCartItem.js"
 
-function CartSection({cart, AddToCart, RemoveFromCart, cartTotal}){
+function CartSection({cart, AddToCart, RemoveFromCart}){
+    let cartTotal = 0
+    for (const cartItem of cart) {
+        let storeItem = products.find(product => product.id === cartItem.id)
+        cartTotal += cartItem.quantity * storeItem.price   
+    }
+
     return( 
         <main id="cart">
             <h2>Your Cart</h2>
