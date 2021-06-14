@@ -7,7 +7,6 @@ import "./styles/index.css";
 
 export default function App() {
     let [cart, setCart] = useState(ImportedCart)
-    let [cartTotal, setTotal] = useState(0)
 
     function AddToCart(storeItem){
         let index = cart.findIndex(cartItem => storeItem.id === cartItem.id) 
@@ -21,7 +20,7 @@ export default function App() {
                     cartItem = {...cartItem, quantity: ++cartItem.quantity}
                 return cartItem
             }) 
-        updatePage()
+        setCart(cart)
     }
     
     function RemoveFromCart(item){
@@ -33,21 +32,12 @@ export default function App() {
                     cartItem = {...cartItem, quantity: --cartItem.quantity}
                 return cartItem
             })
-        updatePage()
-    }
-
-    function updatePage(){
-       cartTotal = 0
-       for (const item of cart) {
-           cartTotal += item.quantity * item.price   
-       }
-       setTotal(cartTotal)
-       setCart(cart)
+        setCart(cart)
     }
 
     return <div className="App">
         <ProductsSection products={products} AddToCart={AddToCart}/>
         <CartSection cart={cart} AddToCart={AddToCart} 
-            RemoveFromCart={RemoveFromCart} cartTotal={cartTotal}/>
+            RemoveFromCart={RemoveFromCart}/>
     </div>;
 }
