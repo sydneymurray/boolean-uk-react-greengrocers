@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 //import ImportedCart from './data/cart.js'
 import ProductsSection from "./components/ProductsSection.js"
 import CartSection from "./components/CartSection.js"
+import Footer from "./components/Footer.js"
 import "./styles/index.css";
 
 export default function App() {
@@ -37,13 +38,12 @@ export default function App() {
         if (index === -1) {
             storeItem = { ...storeItem, quantity: 1 }
             return fetch(`http://localhost:3100/cart`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'Application/json' },
+                method:'POST',
+                headers: {'Content-Type': 'Application/json'},
                 body: JSON.stringify(storeItem)})
                 .then(response => {
                 if (response.ok){
                     cart = [...cart, storeItem]
-                    console.log("CARROT OK",cart)
                     setCart(cart)
                 }
             })
@@ -88,7 +88,6 @@ export default function App() {
                             cartItem = { ...cartItem, quantity: --cartItem.quantity }
                         return cartItem
                     })
-                    console.log(cart)
                     setCart(cart)
                 }
             })
@@ -100,5 +99,6 @@ export default function App() {
         <ProductsSection products={products} AddToCart={AddToCart} />
         <CartSection cart={cart} AddToCart={AddToCart}
             RemoveFromCart={RemoveFromCart} />
+        <Footer />
     </div>;
 }
